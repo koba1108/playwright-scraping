@@ -1,0 +1,9 @@
+version: "3"
+services:
+  playwright:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ./app/:/usr/src/app/
+    # tty: true # コンテナを立ち上げっぱなしにするならttyをture
