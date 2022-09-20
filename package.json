@@ -1,16 +1,20 @@
 {
   "name": "playwright-scraping",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "dist/main.js",
   "repository": "https://github.com/koba1108/playwright-scraping",
   "author": "koba1108 <paseli.koba@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "npx ts-node main.ts"
+    "build": "tsc",
+    "dev": "npx ts-node main.ts",
+    "start": "node ./dist/main.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "playwright": "^1.12.5",
+    "playwright-chromium": "^1.12.5",
+    "typescript": "^4.8.3",
     "ts-node": "^10.9.1",
-    "typescript": "^4.8.3"
+    "@types/node": "^18.7.18"
   }
 }

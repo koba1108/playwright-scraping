@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/playwright
 
-COPY app/ /usr/src/app
+COPY . /usr/src/app
 
 WORKDIR /usr/src/app
 
@@ -11,7 +11,8 @@ RUN apt-get update && \
     npm install -g npm@latest
 
 # playwrightインストール
-RUN yarn install --frozen-lockfile
+RUN yarn install --frozen-lockfile && \
+    yarn build
 
 # script実行
-CMD bash -c "yarn dev"
+ENTRYPOINT [ "node", "./dist/main.js" ]

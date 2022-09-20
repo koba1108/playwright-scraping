@@ -42,9 +42,9 @@ async function main() {
   const videos: Video[] = []
   for (const url of videoUrls) {
     await page.goto(url)
-    const [_, id] = url.split('https://www.youtube.com/watch?v=')[1]
+    const [_, id] = url.split('https://www.youtube.com/watch?v=')
     const detail = await page.evaluate(getVideoDetailFromDocument)
-    if (id && detail) {
+    if (detail) {
       videos.push({id, url, detail})
     }
   }
